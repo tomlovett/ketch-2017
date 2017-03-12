@@ -7,6 +7,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('game/:game_id', function() {
+    this.route('recap');
+  });
 });
 
 export default Router;

@@ -1,0 +1,9 @@
+<div class="bench-field">
+  {{#each players as |player|}}
+    <div class="player-slice" style="background-color: {{backgroundColor}}">
+      {{player.name
+          onClick=(action 'click' player)
+      }}
+    </div>
+  {{/each}}
+</div>

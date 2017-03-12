@@ -1,0 +1,58 @@
+{{outlet}}
+<div class="game">
+  <div class="scoreboard">
+    {{team-scoreboard
+        class=team-scoreboard-container
+    }}
+{{!-- value, name --}}
+    {{team-scoreboard
+        class=team-scoreboard-container
+    }}
+  </div>
+
+  <div class="control-box">
+    {{#if inPlay}}
+      {{!-- we scored/they scored --}}
+      {{!-- ember paper buttons --}}
+    {{#else}}
+      {{!-- done subs --}}
+    {{/if}}
+  </div>
+
+  <div class="players-section">
+    {{#if inPlay}}
+      {{field-stats}}
+    {{else}}
+      {{bench-field
+          class=bench-field-container
+          players=benchMen
+          backgroundColor=model.team.primaryColor
+      }}
+      {{bench-field
+          class=bench-field-container
+          players=benchWomen
+          backgroundColor=model.team.secondayColor
+      }}
+    {{/if}}
+
+    <div class="bench-field-container">
+      {{bench-field
+          class=bench-field-container
+          players=fieldWomen
+          backgroundColor=model.team.primaryColor
+      }}
+     {{bench-field
+          class=bench-field-container
+          players=fieldMen
+          backgroundColor=model.team.secondaryColor
+      }}
+
+      {{#if inPlay}}
+        {{!-- this nothing might cause a problem --}}
+      {{else}}
+        {{!-- clear line --}}
+      {{/if}}
+    </div>
+
+  </div>
+</div>
