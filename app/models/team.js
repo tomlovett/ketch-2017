@@ -1,12 +1,12 @@
 import DS from 'ember-data';
 
-const { attr, hasMany, Model } from DS;
+const { attr, hasMany, Model } = DS;
 
 export default Model.extend({
-  alias: attr(),
-  colors: attr(),
-  metadata: attr(),
-  name: attr(),
-  nickname: attr(),
+  alias: attr('string'),
+  // colors: attr(),
+  // teamMetadata: belongsTo(),
+  name: attr('string'),
+  nickname: attr('string'),
   players: hasMany(),
 });

@@ -1,58 +1,59 @@
-{{outlet}}
-<div class="game">
-  <div class="scoreboard">
+<div class="game layout-column">
+  <div class="flex-25 layout-row">
     {{team-scoreboard
-        class=team-scoreboard-container
+        class='flex-50'
+        score=game.squadScore
+        team=squad
     }}
-{{!-- value, name --}}
     {{team-scoreboard
-        class=team-scoreboard-container
+        class='flex-50'
+        score=game.oppScore
+        team=opponent
     }}
   </div>
 
-  <div class="control-box">
+  <div class="flex-20 layout-row">
     {{#if inPlay}}
-      {{!-- we scored/they scored --}}
-      {{!-- ember paper buttons --}}
-    {{#else}}
-      {{!-- done subs --}}
+      {{#paper-button onClick=(action 'recordScore' squad) class="flex-50"}}
+        We scored!
+      {{/paper-button}}
+
+      {{#paper-button onClick=(action 'recordScore' opponent) class="flex-50"}}
+        They scored...
+      {{/paper-button}}
+    {{else}}
+      {{#paper-button onClick=(action 'toggleInPlay') class="flex"}}
+        Done Subs
+      {{/paper-button}}
     {{/if}}
   </div>
 
-  <div class="players-section">
+ 
+  <div class="players-section layout-row flex">
     {{#if inPlay}}
       {{field-stats}}
     {{else}}
       {{bench-field
-          class=bench-field-container
           players=benchMen
-          backgroundColor=model.team.primaryColor
       }}
+          {{!-- backgroundColor --}}
       {{bench-field
-          class=bench-field-container
           players=benchWomen
-          backgroundColor=model.team.secondayColor
       }}
     {{/if}}
 
-    <div class="bench-field-container">
-      {{bench-field
-          class=bench-field-container
-          players=fieldWomen
-          backgroundColor=model.team.primaryColor
-      }}
-     {{bench-field
-          class=bench-field-container
-          players=fieldMen
-          backgroundColor=model.team.secondaryColor
-      }}
-
-      {{#if inPlay}}
-        {{!-- this nothing might cause a problem --}}
-      {{else}}
-        {{!-- clear line --}}
-      {{/if}}
-    </div>
-
+    {{bench-field
+        players=fieldWomen
+    }}
+   {{bench-field
+        players=fieldMen
+    }}
   </div>
+
+      {{!-- {{#if inPlay}} --}}
+        {{!-- this nothing might cause a problem --}}
+      {{!-- {{else}} --}}
+        {{!-- clear line --}}
+      {{!-- {{/if}} --}}
+
 </div>

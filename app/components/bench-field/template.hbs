@@ -1,6 +1,6 @@
-<div class="bench-field">
+<div class="bench-field layout-column">
   {{#each players as |player|}}
-    <div class="player-slice" style="background-color: {{backgroundColor}}">
+    <div class="player-slice flex-10">
       {{player.name
           onClick=(action 'click' player)
       }}
