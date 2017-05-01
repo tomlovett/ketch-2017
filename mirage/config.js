@@ -6,5 +6,9 @@ export default function() {
 
   this.get('players/:id');
 
+  this.post('points');
+
+  this.post('stats');
+
   this.get('teams/:id');
 }

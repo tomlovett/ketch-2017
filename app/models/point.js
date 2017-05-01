@@ -1,8 +1,11 @@
 import DS from 'ember-data';
 
-const { attr, belongsTo, hasMany, Model } = DS;
+const {  Model, attr, belongsTo, hasMany } = DS;
 
 export default Model.extend({
   players: hasMany(),
   game: belongsTo(),
+  oppScore: attr('number'),
+  squadScore: attr('number'),
+  // stats: hasMany(),
 });

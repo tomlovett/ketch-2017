@@ -12,48 +12,67 @@
     }}
   </div>
 
-  <div class="flex-20 layout-row">
+  <div class="flex-10 layout-row">
     {{#if inPlay}}
-      {{#paper-button onClick=(action 'recordScore' squad) class="flex-50"}}
+      {{#paper-button onClick=(action 'weScored') class="white flex-50"}}
         We scored!
       {{/paper-button}}
 
-      {{#paper-button onClick=(action 'recordScore' opponent) class="flex-50"}}
+      {{#paper-button onClick=(action 'theyScored') class="white flex-50"}}
         They scored...
       {{/paper-button}}
     {{else}}
-      {{#paper-button onClick=(action 'toggleInPlay') class="flex"}}
+      {{#paper-button onClick=(action 'setLine') class="white flex"}}
         Done Subs
       {{/paper-button}}
     {{/if}}
   </div>
 
+  <span class="flex-5"></span>
+
  
   <div class="players-section layout-row flex">
+    <span class='flex-5'></span>
     {{#if inPlay}}
-      {{field-stats}}
+      {{field-stats
+          class='flex-45'
+          onClickStat=(action 'clickStat')
+      }}
     {{else}}
       {{bench-field
           players=benchMen
+          onClick=(action 'sub')
+          class='flex-25'
+          playerClass=squad.primary
       }}
-          {{!-- backgroundColor --}}
       {{bench-field
           players=benchWomen
+          onClick=(action 'sub')
+          playerClass=squad.secondary
+          class='flex-25'
       }}
     {{/if}}
-
-    {{bench-field
-        players=fieldWomen
-    }}
-   {{bench-field
-        players=fieldMen
-    }}
+      <span class='flex'></span>
+      <div class='flex-25'>
+        {{bench-field
+            players=fieldWomen
+            onClick=(action 'clickPlayer')
+            playerClass=squad.secondary
+        }}
+       {{bench-field
+            players=fieldMen
+            onClick=(action 'clickPlayer')
+            playerClass=squad.primary
+        }}
+        {{#if inPlay}}
+          {{!-- adjust line --}}
+        {{else}}
+          {{#paper-button onClick=(action 'clearLine') class='flex-5 white'}}
+            Clear Line
+          {{/paper-button}}
+        {{/if}}
+      </div>
+      <span class='flex-5'></span>
   </div>
-
-      {{!-- {{#if inPlay}} --}}
-        {{!-- this nothing might cause a problem --}}
-      {{!-- {{else}} --}}
-        {{!-- clear line --}}
-      {{!-- {{/if}} --}}
 
 </div>

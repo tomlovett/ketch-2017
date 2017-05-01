@@ -1,11 +1,13 @@
-import { Factory } from 'ember-cli-mirage';
+import { Factory, faker } from 'ember-cli-mirage';
 
 export default Factory.extend({
-  name(id) {
-    return 'Player ${id}'
+  firstName() {
+    return faker.name.firstName();
   },
 
-  gender(id) {
-    return id % 2 === 0 ? 'm' : 'f';
-  },
+  gender: faker.list.cycle('m', 'f', 'm', 'f', 'm', 'f', 'm'),  
+
+  lastName() {
+    return faker.name.lastName();
+  }
 });

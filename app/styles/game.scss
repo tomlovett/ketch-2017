@@ -1,31 +1,5 @@
 .game {
-  .scoreboard {
-    // block
-    .team-scoreboard-container {
-      width: 50vw;
-    }
-  }
-
-  .control-box {
-    height: 15vh;
-    .score-button {
-    }
-  }
-
-  .players-section {
-    height: 40vh;
-
-    .bench-field-container {
-      width: 33vw;
-      text-align: left;
-
-      .field {
-        text-align: right;
-      }
-    }
-
-    .field-stats-container {
-      width: 66vh;
-    }
-  }
+  background-color: #000000;
+  color: #EEEEEE;
+  height: 100vh;
 }

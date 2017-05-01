@@ -1,1 +1,11 @@
-{{yield}}
+<div class='layout-column layout-align-space-around-center field-stats'>
+  <span class='flex-5'></span>
+  {{#paper-button class='flex-15 stat yellow' onClick=(action 'clickGoldStar')}}
+    Gold Star!
+  {{/paper-button}}
+  <span class='flex-10'></span>
+  {{#paper-button class='flex-15 stat red' onClick=(action 'clickBoo')}}
+    Boo...
+  {{/paper-button}}
+  <span class='flex'></span>
+</div>

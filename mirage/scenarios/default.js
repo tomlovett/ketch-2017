@@ -1,6 +1,8 @@
 export default function(server) {
-  const players = server.createList('player', 14);
+  let players = server.createList('player', 17);
   const squad = server.create('team', { players });
 
-  server.create('game', { squad });
+  const opponent = server.create('team');
+
+  server.create('game', { squad, opponent });
 }

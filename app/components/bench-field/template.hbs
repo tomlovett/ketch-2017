@@ -1,9 +1,7 @@
 <div class="bench-field layout-column">
-  {{#each players as |player|}}
-    <div class="player-slice flex-10">
-      {{player.name
-          onClick=(action 'click' player)
-      }}
+  {{#each sortedPlayers as |player|}}
+    <div class="flex player-slice round-edges {{playerClass}}" {{action 'click' player}}>
+      {{player.firstName}}
     </div>
   {{/each}}
 </div>

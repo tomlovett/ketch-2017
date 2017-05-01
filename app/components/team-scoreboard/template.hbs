@@ -1,5 +1,9 @@
 <div class="team-scoreboard layout-column">
-  <h1 class="flex centered">{{score}}</h1>
+  <h1 class="flex centered">
+    <span class="score {{team.primary}}">{{score}}</span>
+  </h1>
 
-  <h3 class="flex centered">{{team.name}}</h3>
+  <h3 class="flex centered">
+    <span class="team-name {{team.primary}}">{{team.name}}</span>
+  </h3>
 </div>

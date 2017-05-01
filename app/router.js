@@ -10,6 +10,13 @@ Router.map(function() {
   this.route('game', { path: '/game/:game_id' }, function() {
     this.route('recap');
   });
+  // edit
+    // team
+    // player
+  // team
+    // stats with link to new game
+  // player
+    // stats
 });
 
 export default Router;
