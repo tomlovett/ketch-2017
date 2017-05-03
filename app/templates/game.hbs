@@ -15,11 +15,11 @@
 
   <div class="flex-10 layout-row">
     {{#if inPlay}}
-      {{#paper-button onClick=(action 'weScored') class="white flex-50"}}
+      {{#paper-button onClick=(action 'recordScore' squad.id) class="white flex-50"}}
         We scored!
       {{/paper-button}}
 
-      {{#paper-button onClick=(action 'theyScored') class="white flex-50"}}
+      {{#paper-button onClick=(action 'recordScore' opponent.id) class="white flex-50"}}
         They scored...
       {{/paper-button}}
     {{else}}

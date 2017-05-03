@@ -7,5 +7,6 @@ export default Model.extend({
   game: belongsTo(),
   oppScore: attr('number'),
   squadScore: attr('number'),
-  // stats: hasMany(),
+  scoredBy: belongsTo('team'),
+  stats: hasMany(),
 });

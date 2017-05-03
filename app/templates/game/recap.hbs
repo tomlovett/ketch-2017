@@ -1,1 +1,22 @@
-{{outlet}}
+<div class="game layout-column">
+  <div class="flex-25 layout-row">
+    {{team-scoreboard
+        class='flex-50'
+        score=game.squadScore
+        team=squad
+    }}
+    {{team-scoreboard
+        class='flex-50'
+        score=game.oppScore
+        team=opponent
+    }}
+  </div>
+
+  {{#each game.point as |point|}}
+    {{point}}
+  {{/each}}
+
+{{!-- each point in game.points --}}
+  {{!-- (1 - 3) Line: Stats: [2] --}}
+    {{!-- color-coded by team that scored --}}
+</div>
