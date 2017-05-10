@@ -5,13 +5,18 @@ export default function() {
   // this.namespace = '';    // make this `/api`, for example, if your API is namespaced
 
   this.get('games/:id');
+  this.patch('games/:id', (schema, request) => {
+    return request.requestBody
+  }, 201);
 
   this.get('players/:id', () => {
     return send(201);
   });
 
   this.post('points');
-  this.patch('points/:id');
+  this.patch('points/:id', (schema, request) => {
+    return request.requestBody
+  }, 201);
 
   this.post('stats');
 

@@ -4,7 +4,5 @@ export default function(server) {
 
   const opponent = server.create('team');
 
-  const points = server.createList('point', 3);
-
-  server.create('game', { squad, opponent, points });
+  server.create('game', { squad, opponent });
 }

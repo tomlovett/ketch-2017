@@ -2,4 +2,15 @@
   background-color: #000000;
   color: #EEEEEE;
   height: 100vh;
+
+  .recap {
+    // overflow-y: scroll;
+
+    .score {
+      font-size: 36px;
+      font-weight: 600;
+      padding: 0 5px;
+      text-align: center;
+    }
+  }
 }

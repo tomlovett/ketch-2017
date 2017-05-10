@@ -1,22 +1,30 @@
-<div class="game layout-column">
-  <div class="flex-25 layout-row">
-    {{team-scoreboard
-        class='flex-50'
-        score=game.squadScore
-        team=squad
-    }}
-    {{team-scoreboard
-        class='flex-50'
-        score=game.oppScore
-        team=opponent
-    }}
-  </div>
-
-  {{#each game.point as |point|}}
-    {{point}}
+<div class="recap layout-column">
+  {{#each model.points as |point|}}
+    <div class="layout-row {{point.scoredBy.primary}}">
+      <span class="score flex-25">{{point.squadScore}} - {{point.oppScore}}</span>
+      <span class="flex">
+        {{#each point.players as |player|}}
+          {{player.firstName}}
+        {{/each}}
+      </span>
+    </div>
   {{/each}}
-
-{{!-- each point in game.points --}}
-  {{!-- (1 - 3) Line: Stats: [2] --}}
-    {{!-- color-coded by team that scored --}}
 </div>
+{{!-- 
+<div class="recap layout-column">
+  {{#paper-virtual-repeat model.points
+      onScrollBottomed=null as |points|
+  }}
+  {{#each points as |point|}}
+    <div class="repeated-item {{point.scoredBy.primary}}">
+      <span class="score flex-25">{{point.squadScore}} - {{point.oppScore}}</span>
+      <span class="flex">
+        {{#each point.players as |player|}}
+          {{player.firstName}}
+        {{/each}}
+      </span>
+    </div>
+  {{/each}}
+  {{/paper-virtual-repeat}}
+</div>
+ --}}

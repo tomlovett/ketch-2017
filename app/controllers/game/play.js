@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   squad: computed.alias('model.squad'),
   players: computed.alias('squad.players'),
   opponent: computed.alias('model.opponent'),
-  point: null,
+  points: computed.alias('model.points'),
 
   men: computed.filterBy('players', 'gender', 'm'),
   benchMen: computed.filterBy('men', 'onField', false),
@@ -26,7 +26,6 @@ export default Ember.Controller.extend({
 
   actions: {
     clearLine() {
-      debugger;
       if (this.get('onField.length') > 0) {
         this.get('onField').forEach((player) => {
           player.toggleProperty('onField');
@@ -58,6 +57,7 @@ export default Ember.Controller.extend({
 
     recordScore(teamId) {
       const point = this.get('point');
+      const game = this.get('game');
 
       if (teamId === this.get('squad.id')) {
         this.incrementProperty('game.squadScore');
@@ -70,6 +70,8 @@ export default Ember.Controller.extend({
       }
 
       point.save();
+      game.get('points').pushObject(point);
+      game.save();
       this.set('point', null);
       this.toggleProperty('inPlay');
     },
