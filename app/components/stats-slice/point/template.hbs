@@ -1,0 +1,8 @@
+<div class="point-slice layout-row {{point.scoredBy.primary}}">
+  <span class="flex-15">{{teamOne.score}} - {{teamTwo.score}}</span>
+  <span class="flex">
+    {{#each teamOnePlayers as |player|}}
+      {{player.handle}}&nbsp;
+    {{/each}}
+  </span>
+</div>
