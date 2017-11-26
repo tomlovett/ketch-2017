@@ -15,14 +15,18 @@ Router.map(function() {
     });
     this.route('settings');
   });
-  // edit
+  this.route('team', { path: '/team/:team_id' }, function() {
+    this.route('roster');
+  });
+  // team - base: name, newGame - roster, history, stats
+    // gameHistory
+    // stats
+  // player - base: name
+    // stats
+
+  // create
     // team
     // player
-  // team
-    // this.route('newGame');
-    // stats with link to new game
-  // player
-    // stats
 });
 
 export default Router;
