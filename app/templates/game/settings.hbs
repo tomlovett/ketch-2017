@@ -1,0 +1,31 @@
+<div class="layout-column">
+  <div class="flex-20"></div>
+
+  {{!-- edit game roster --}}
+
+  {{!-- edit game metadata --}}
+
+  <div class="centered flex-10">
+    {{#paper-button onClick=(action 'finishGame') class="white flex-50"}}
+      Finish Game
+    {{/paper-button}}
+  </div>
+
+  <div class="flex-10"></div>
+
+  <div class="centered flex-10">
+    {{#paper-button onClick=(action 'cancelGame') class="red flex-50"}}
+      Cancel Game
+    {{/paper-button}}
+  </div>
+
+  <div class="flex-10"></div>
+  
+  <div class="centered flex-10">
+    {{#paper-button class="green flex-50"}}
+      Return
+    {{/paper-button}}
+  </div>
+</div>
+
+{{outlet}}

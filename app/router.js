@@ -13,11 +13,13 @@ Router.map(function() {
       this.route('players');
       this.route('points');
     });
+    this.route('settings');
   });
   // edit
     // team
     // player
   // team
+    // this.route('newGame');
     // stats with link to new game
   // player
     // stats

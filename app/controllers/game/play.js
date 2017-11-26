@@ -1,23 +1,23 @@
 import Ember from 'ember';
 
-const { computed } = Ember;
+const { computed: { alias, filterBy, uniq } } = Ember;
 
 export default Ember.Controller.extend({
-  game: computed.alias('model'),
-  squad: computed.alias('model.squad'),
-  players: computed.alias('squad.players'),
-  opponent: computed.alias('model.opponent'),
-  points: computed.alias('model.points'),
+  game: alias('model'),
+  squad: alias('game.squad'),
+  players: alias('squad.players'),
+  opponent: alias('game.opponent'),
+  points: alias('game.points'),
 
-  men: computed.filterBy('players', 'gender', 'm'),
-  benchMen: computed.filterBy('men', 'onField', false),
-  fieldMen: computed.filterBy('men', 'onField', true),
+  men: filterBy('players', 'gender', 'm'),
+  benchMen: filterBy('men', 'onField', false),
+  fieldMen: filterBy('men', 'onField', true),
 
-  women: computed.filterBy('players', 'gender', 'f'),
-  benchWomen: computed.filterBy('women', 'onField', false),
-  fieldWomen: computed.filterBy('women', 'onField', true),
+  women: filterBy('players', 'gender', 'f'),
+  benchWomen: filterBy('women', 'onField', false),
+  fieldWomen: filterBy('women', 'onField', true),
 
-  onField: computed.uniq('fieldMen', 'fieldWomen'),
+  onField: uniq('fieldMen', 'fieldWomen'),
   inPlay: false,
   point: null,
 
@@ -105,8 +105,10 @@ export default Ember.Controller.extend({
       });
 
       stat.save().then(() => {
-        this.set('livePlayer', null);
-        this.set('liveStat', null);
+        this.setProperties({
+          livePlayer: null,
+          liveStat: null
+        });
       });
     }
   },
