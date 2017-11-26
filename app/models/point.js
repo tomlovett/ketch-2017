@@ -2,13 +2,15 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 const {  Model, attr, belongsTo, hasMany } = DS;
-const { computed: { filter } } = Ember;
+const { computed: { alias } } = Ember;
 
 export default Model.extend({
-  players: hasMany(),
   game: belongsTo(),
-  teamOneScore: attr('number'), // computed function
-  teamTwoScore: attr('number'), // computed function
+  opp: alias('game.opponent'),
+  oppScore: attr('number'),
+  players: hasMany(),
   scoredBy: belongsTo('team'),
+  squad: alias('game.squad'),
+  squadScore: attr('number'),
   stats: hasMany(),
 });

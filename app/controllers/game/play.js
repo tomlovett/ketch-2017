@@ -69,11 +69,12 @@ export default Ember.Controller.extend({
         point.set('scoredBy', this.get('opponent'));
       }
 
-      point.save();
-      game.get('points').pushObject(point);
-      game.save();
-      this.set('point', null);
-      this.toggleProperty('inPlay');
+      point.save().then(() => {
+        game.get('points').pushObject(point);
+        game.save();
+        this.set('point', null);
+        this.toggleProperty('inPlay');
+      });
     },
 
     setLine() {
@@ -84,8 +85,9 @@ export default Ember.Controller.extend({
         squadScore: this.get('game.squadScore'),
       });
       this.toggleProperty('inPlay');
-      point.save();
-      this.set('point', point);
+      point.save().then(() => {
+        this.set('point', point);
+      });
     },
 
     sub(player) {
@@ -101,9 +103,11 @@ export default Ember.Controller.extend({
         point: this.get('point'),
         game: this.get('game'),
       });
-      stat.save();
-      this.set('livePlayer', null);
-      this.set('liveStat', null);
+
+      stat.save().then(() => {
+        this.set('livePlayer', null);
+        this.set('liveStat', null);
+      });
     }
   },
 });

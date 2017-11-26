@@ -6,7 +6,7 @@ export default function() {
 
   this.get('games/:id');
   this.patch('games/:id', (schema, request) => {
-    return request.requestBody
+    return request.requestBody;
   }, 201);
 
   this.get('players/:id', () => {
@@ -15,7 +15,7 @@ export default function() {
 
   this.post('points');
   this.patch('points/:id', (schema, request) => {
-    return request.requestBody
+    return request.requestBody;
   }, 201);
 
   this.post('stats');
