@@ -1,4 +1,5 @@
-<div class="bench-field layout-column">
+<div class="player-list layout-column">
+  {{!-- if title: --}}
   {{#each sortedPlayers as |player|}}
     <div class="flex player-slice round-edges {{playerClass}}" {{action 'click' player}}>
       {{player.firstName}}

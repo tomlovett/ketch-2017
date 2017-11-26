@@ -24,13 +24,13 @@
           onClickStat=(action 'clickStat')
       }}
     {{else}}
-      {{bench-field
+      {{player-list
           players=benchMen
           onClick=(action 'sub')
           class='flex-25'
           playerClass=squad.primary
       }}
-      {{bench-field
+      {{player-list
           players=benchWomen
           onClick=(action 'sub')
           playerClass=squad.secondary
@@ -39,12 +39,12 @@
     {{/if}}
       <span class='flex'></span>
       <div class='flex-25'>
-        {{bench-field
+        {{player-list
             players=fieldWomen
             onClick=(action 'clickPlayer')
             playerClass=squad.secondary
         }}
-       {{bench-field
+       {{player-list
             players=fieldMen
             onClick=(action 'clickPlayer')
             playerClass=squad.primary
