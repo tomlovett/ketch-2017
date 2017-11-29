@@ -18,15 +18,17 @@ Router.map(function() {
   this.route('team', { path: '/team/:team_id' }, function() {
     this.route('roster');
   });
-  // team - base: name, newGame - roster, history, stats
-    // gameHistory
-    // stats
   // player - base: name
-    // stats
-
+  // stats
+  // games - points
+  // edit
   // create
-    // team
-    // player
+  // team - name, primary, secondary
+  // player - first, last, gender, nicknames
+
+  this.route('create', function() {
+    this.route('team');
+  });
 });
 
 export default Router;
