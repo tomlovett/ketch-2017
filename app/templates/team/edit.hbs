@@ -1,0 +1,56 @@
+{{!-- <p>Team Name: {{input value=model.name}}</p>
+
+<p>Nickname: {{model.nickname}}</p>
+
+<p>Primary color:</p>
+
+<p>Secondary color:</p>
+
+<p>Alias: {{model.alias}}</p>
+
+{{#paper-button onClick=(action 'saveModel')}}
+  Save Changes
+{{/paper-button}}
+ --}}
+
+ <div class="create-team flex layout-column">
+  <h3>Create Team</h3>
+  {{paper-input class="flex-15" label="Team Name" value=team.name onChange=(action (mut team.name)) required=true}}
+  {{paper-input class="flex-15" label="Alias (shortened name)" value=team.alias onChange=(action (mut team.alias)) required=nameTooLong maxlength=16}}
+
+
+  {{#paper-select
+    disabled=disableSelect
+    label="Primary Color"
+    options=colors
+    required=true
+    selected=team.primary
+    onChange=(action (mut team.primary))
+    as |color|}}
+    <div class={{color}}>
+      {{color}}
+    </div>
+  {{/paper-select}}
+
+  {{!-- {{#if showPrimary}} --}}
+  {{!-- do paper list or #each --}}
+
+  {{#paper-select
+    disabled=disableSelect
+    label="Secondary Color"
+    options=colors
+    required=true
+    selected=team.secondary
+    onChange=(action (mut team.secondary))
+    as |color|}}
+    <div class={{color}}>
+      {{color}}
+    </div>
+  {{/paper-select}}
+
+{{!-- later: metadata --}}
+
+  {{#paper-button raised=true primary=true onClick=(action 'saveModel')}}
+    Continue
+  {{/paper-button}}
+</div>

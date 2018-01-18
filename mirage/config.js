@@ -5,9 +5,9 @@ export default function() {
   // this.namespace = '';    // make this `/api`, for example, if your API is namespaced
 
   this.get('games/:id');
-  this.patch('games/:id', (schema, request) => {
-    return request.requestBody;
-  }, 201);
+
+  this.get('games');
+  // functionality to query games by teams included
 
   this.get('players/:id', () => {
     return send(201);

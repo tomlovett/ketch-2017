@@ -4,7 +4,12 @@
   </div>
 
   <div class="centered flex-10">
-    <h2>Roster  Games  Stats  Edit</h2>
+    <h2 class="basic-link">
+      {{#link-to "team.roster" team}}Roster{{/link-to}}
+      {{#link-to "team.games" team}}Games{{/link-to}}
+      {{#link-to "team.stats" team}}Stats{{/link-to}}
+      {{#link-to "team.edit" team}}Edit{{/link-to}}
+    </h2>
   </div>
 
   {{outlet}}
